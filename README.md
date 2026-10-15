@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Student Management System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+```
+    h1 {
+        color: darkblue;
+    }
+
+    .container {
+        background-color: white;
+        width: 350px;
+        margin: 30px auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    input, select {
+        width: 90%;
+        padding: 10px;
+        margin: 8px;
+    }
+
+    button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    table {
+        margin: 20px auto;
+        background-color: white;
+        border-collapse: collapse;
+        width: 80%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    th {
+        background-color: darkblue;
+        color: white;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<h1>Student Management System</h1>
+
+<div class="container">
+    <h2>Add Student</h2>
+
+    <form id="studentForm">
+        <input type="text" id="name" placeholder="Student Name" required>
+        <input type="text" id="roll" placeholder="Roll Number" required>
+        <input type="text" id="course" placeholder="Course" required>
+        <input type="email" id="email" placeholder="Email" required>
+
+        <button type="submit">Add Student</button>
+    </form>
+</div>
+
+<h2>Student Details</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Course</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody id="studentList">
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("studentForm").onsubmit = function(e) {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let roll = document.getElementById("roll").value;
+        let course = document.getElementById("course").value;
+        let email = document.getElementById("email").value;
+
+        let row = document.createElement("tr");
+
+        [name, roll, course, email].forEach(function(value) {
+            let cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        document.getElementById("studentList").appendChild(row);
+        document.getElementById("studentForm").reset();
+    };
+</script>
+```
+
+</body>
+</html>
